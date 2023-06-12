@@ -678,15 +678,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    Getting Started
+  <a href="#creating-your-image" class="md-nav__link">
+    Creating your Image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-your-domain" class="md-nav__link">
-    Using your Domain
+  <a href="#set-up-a-git-repository" class="md-nav__link">
+    Set up a Git Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-your-production-staging-site" class="md-nav__link">
+    Set up your Production / Staging Site
   </a>
   
 </li>
@@ -749,13 +756,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-and-deploying-your-custom-container" class="md-nav__link">
-    Building and Deploying Your Custom Container
-  </a>
   
 </li>
       
@@ -2451,15 +2451,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    Getting Started
+  <a href="#creating-your-image" class="md-nav__link">
+    Creating your Image
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-your-domain" class="md-nav__link">
-    Using your Domain
+  <a href="#set-up-a-git-repository" class="md-nav__link">
+    Set up a Git Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-your-production-staging-site" class="md-nav__link">
+    Set up your Production / Staging Site
   </a>
   
 </li>
@@ -2525,13 +2532,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#building-and-deploying-your-custom-container" class="md-nav__link">
-    Building and Deploying Your Custom Container
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2557,27 +2557,66 @@
 
 
 <h1 id="installing-a-productionstaging-server">Installing a Production/Staging Server<a class="headerlink" href="#installing-a-productionstaging-server" title="Permanent link">&para;</a></h1>
-<p>If you are deploying Islandora on a server that is publicly accessible, there's extra precautions you should take for
-performance and security reasons. If you follow these steps, you'll see how we can use our <code>codebase</code> folder to build
-a custom Drupal container, and bake code into the container instead of bind-mounting it in. We'll also cover how to
-store passwords as secrets and set up TLS.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>If you haven't already <a href="../docker-local">made a local environment</a>, you'll want to do that first.  These instructions build off of having
-a codebase folder.</p>
-<h2 id="using-your-domain">Using your Domain<a class="headerlink" href="#using-your-domain" title="Permanent link">&para;</a></h2>
-<p>At this point, we're assuming that you've purchased a domain to use for your repository.  By default, <code>islandora.traefik.me</code> is used, which
-is fine for <code>make demo</code> and <code>make local</code>.  But for your production site, you'll need to set the domain you own in your .env file.</p>
-<pre><code>DOMAIN=example.org
+<p>If you are deploying Islandora on a server that is publicly accessible, there are extra precautions you should take for
+performance and security reasons.</p>
+<p>For local development we bind mount our codebase (Drupal) folder so that we can do development work locally, outside of 
+our Docker container. For a production site we don’t want to do this. Instead, we make changes to our development site, 
+then build a Drupal image with our changes that we can use on our production site instead of the default Islandora Drupal 
+image.</p>
+<h2 id="creating-your-image">Creating your Image<a class="headerlink" href="#creating-your-image" title="Permanent link">&para;</a></h2>
+<p>In order to generate that custom Drupal image we need to <a href="../docker-local">set up a development environment</a>. You will do this 
+on your development computer, rather than your production server.</p>
+<p>Once your development site is set up you will need somewhere to store your custom Drupal image. You should create a private 
+repository in your container registry of choice (Dockerhub, GitHub, GitLab, etc.)</p>
+<p>Once you have a place to store it, you can create your custom Drupal image by editing your <code>.env</code> to set <code>CUSTOM_IMAGE_NAMESPACE</code> 
+to your dockerhub username or the URL and username for your container repository, and <code>CUSTOM_IMAGE_NAME</code> to the name of the 
+repository you just created.</p>
+<p>Once this is done you can run <code>make build</code> to create the image from a Dockerfile. If you don't have a custom Dockerfile, it will 
+create one from sample.Dockerfile. This will create a new image from the Islandora Drupal image, with your codebase folder copied 
+into the image during the build process. </p>
+<p>You should now have a custom Drupal image on your local machine. You will need to <code>docker login</code> to your container registry to push 
+your image, so make sure to do that if you haven't yet (you should only need to do this once). You can then push this image to your 
+container registry by running <code>make push-image</code>. </p>
+<h2 id="set-up-a-git-repository">Set up a Git Repository<a class="headerlink" href="#set-up-a-git-repository" title="Permanent link">&para;</a></h2>
+<p>Now that you have a development site set up with your own codebase folder, you should create a new git repository for your site. 
+This way you can easily spin up a new site based on your modules and configuration, instead of the Islandora Starter Site. This will 
+also allow you to sync changes between your production, staging, and development sites.</p>
+<p>You will likely want to include the Isle-dc directory as well as your codebase folder in your git repository. This will allow you to make modifications to 
+your Makefile, Dockerfile, docker-compose.yml, etc. and keep those modifications alongside your Drupal files in the codebase folder. 
+To store these files in your own private repository you should change the git remote repository URL from the Isle-DC URL to the URL for your private repository.</p>
+<p>Note that Isle-DC has the codebase folder in its <code>.gitignore</code>, so you will want to remove <code>codebase*</code> from your .gitignore. You don't need
+the web or vendor directories to be stored in your repo, since they will be added when you do a composer install during the site setup,
+so you can add those into your <code>.gitignore</code> as <code>codebase/vendor/*</code> and <code>codebase/web/*</code>.</p>
+<h2 id="set-up-your-production-staging-site">Set up your Production / Staging Site<a class="headerlink" href="#set-up-your-production-staging-site" title="Permanent link">&para;</a></h2>
+<p>At this point you should have a custom git repository and a custom Drupal image, and both should be accessible by your production server.
+On your production server you will need to clone your custom copy of Isle-dc, copy the <code>sample.env</code> file, and name it <code>.env</code>. </p>
+<p>In that <code>.env</code> you should set the following variables:</p>
+<pre><code>ENVIRONMENT=custom
+COMPOSE_PROJECT_NAME=(same as dev site)
+CUSTOM_IMAGE_NAMESPACE=(same as dev site)
+CUSTOM_IMAGE_NAME=(same as dev site)
+DOMAIN=your-domain.com
 </code></pre>
+<p>Once this is set up, run <code>make production</code> to install your drupal site. You can generate new secrets for your production passwords, or 
+copy them from your dev server if you would like them to be the same.</p>
+<p>At this point, your site is ready, but you won't be able to access it at your URL until you update the SSL certificates (see TLS section below).</p>
+<div class="admonition note">
+<p class="admonition-title">Codebase Folder</p>
+<p>Because your codebase folder is in your git repository it will be cloned to your development server, but unlike in your development
+environment, it is not bound to the Drupal container. This means that any change you make to those files will not be represented in 
+your Drupal site.</p>
+<p>You can also use this folder to build your Drupal image on the production server instead of on your development server if you like.</p>
+</div>
 <h2 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h2>
 <p>Sensitive information, such as passwords, should never be built into a container.  It also shouldn't ever be bind-mounted in like we
 do with our codebase folder.  If you use secrets, it's like bind-mounting in a file, except that file is provided from the host machine
 to the container using an encrypted channel.</p>
-<p>To use secrets, set the following in your .env file</p>
+<p>Secrets are on by default. They can be toggled in your <code>.env</code> file, but you should never turn them off for production sites.</p>
 <pre><code>USE_SECRETS=true
 </code></pre>
 <p>The secrets themselves are stored in the <code>secrets/live</code> folder of <code>isle-dc</code>.  If you navigate to that directory, you'll see several small
-files, where each file represents a different password. They are each randomly generated when you run <code>make local</code>.</p>
+files, where each file represents a different password. When you run <code>make production</code> you can choose whether to generate new random 
+secrets or create them yourself.</p>
 <h2 id="tls">TLS<a class="headerlink" href="#tls" title="Permanent link">&para;</a></h2>
 <p>All public facing sites need to use HTTPS, and it's definitely a stumbling block for the uninitiated.  Fortunately, <code>isle-dc</code> is
 set up to  use HTTPS by default.  Even when running <code>make demo</code>, your site runs over HTTPS at <code>https://islandora.traefik.me</code>.</p>
@@ -2643,28 +2682,13 @@ ACME_EAB_HMAC=
 <pre><code>make -B docker-compose.yml
 make up
 </code></pre>
-<h2 id="building-and-deploying-your-custom-container">Building and Deploying Your Custom Container<a class="headerlink" href="#building-and-deploying-your-custom-container" title="Permanent link">&para;</a></h2>
-<p>First, set your <code>ENVIRONMENT</code> variable to <code>custom</code> in  your .env file in addition to the changes outlined above</p>
-<pre><code>ENVIRONMENT=custom
-USE_SECRETS=true
-DOMAIN=your-domain.org
-</code></pre>
-<p>Then rebuild your dockerfile to have your changes take effect</p>
-<pre><code>make -B docker-compose.yml
-</code></pre>
-<p>After this, you can build your custom container with</p>
-<pre><code>make build
-</code></pre>
-<p>You then deploy the container with</p>
-<pre><code>docker-compose up -d
-</code></pre>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 7, 2023</span>
       
     
   </small>

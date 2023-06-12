@@ -2357,15 +2357,15 @@
 
 
 <h1 id="docker-demo">Docker Demo<a class="headerlink" href="#docker-demo" title="Permanent link">&para;</a></h1>
-<p>To test Islandora, there is <a href="https://drive.google.com/file/d/1LrIe12eYAZjD4A8_cqf61RXv7mtMJRHH/view?usp=share_link">a starter-site based demo available in Google Drive</a>. It is loaded with sample content to demonstrate
+<p>To test out Islandora, there is <a href="https://drive.google.com/file/d/1LrIe12eYAZjD4A8_cqf61RXv7mtMJRHH/view?usp=share_link">a Starter-Site based demo available in Google Drive</a>. It is loaded with sample content to demonstrate
 features of Islandora and provide a starting point for exploration. </p>
 <p>Download your demo and use the instructions below to install. It is recommended that you have a minimum of 4GB of hard drive space available on your machine before getting started. It will take some time to build the image, do not be surprised if it takes at least 25 minutes. Thanks, and happy building!
 <br></p>
 <h1 id="installation-video-tutorial">Installation Video Tutorial<a class="headerlink" href="#installation-video-tutorial" title="Permanent link">&para;</a></h1>
-<p>Click here to view a video tutorial: <a href="https://www.youtube.com/watch?v=xhJft9K-YMU">How to Install Docker Desktop and Set up Starter Site</a>.
+<p>This material is also covered in: <a href="https://www.youtube.com/watch?v=xhJft9K-YMU">How to Install Docker Desktop and Set up Starter Site (video tutorial)</a>.
 <br></p>
 <h1 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h1>
-<p>Before you can set up your demonstration locally you must first install a few software packages.</p>
+<p>Before you can set up your demo locally you must first install a few software packages.</p>
 <h2 id="docker-desktop">Docker Desktop<a class="headerlink" href="#docker-desktop" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a> provides a graphical user interface for all major platforms.</p>
 <p><a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
@@ -2387,27 +2387,27 @@ the <a href="https://portainer.io/">Portainer</a> extension:</p>
 <p>Assuming you have all the <a href="#requirements">Requirements</a> installed
 and running. You can now setup your demo. </p>
 <h2 id="get-a-yaml-file">Get a Yaml file<a class="headerlink" href="#get-a-yaml-file" title="Permanent link">&para;</a></h2>
-<p><a href="https://drive.google.com/file/d/1LrIe12eYAZjD4A8_cqf61RXv7mtMJRHH/view?usp=share_link">Download this .zip file</a> and use the yaml file provided inside.</p>
+<p>Download the <a href="https://drive.google.com/file/d/1LrIe12eYAZjD4A8_cqf61RXv7mtMJRHH/view?usp=share_link">Starter-Site-based demo from Google Drive</a> (Google Drive places the download icon in the top-right), unzip it, and find the <code>docker-compose.yml</code> file provided inside. This will be used in the next step.</p>
 <h2 id="create-stack">Create Stack<a class="headerlink" href="#create-stack" title="Permanent link">&para;</a></h2>
-<p>Once you have downloaded the pre-made yaml file, you can open <strong>Portainer</strong> via the Docker
-Desktop Dashboard. </p>
+<p>Open <strong>Portainer</strong> via the Docker Desktop Dashboard. </p>
 <ol>
 <li>Open Docker Desktop.</li>
 <li>Click on Portainer.</li>
-<li>If you see the Quick Setup Environment Wizard, click “Get Started". Otherwise, select your local environment under "Environments".</li>
-<li>Open the sidebar.</li>
+<li>If you see the Quick Setup Environment Wizard, click “Get Started" and then select the "local" environment. Otherwise, select your local environment under "Environments".</li>
+<li>Widen/open the blue vertical sidebar by clicking the &gt;&gt; button near the top of the sidebar.</li>
 <li>Click on <strong>Stacks</strong>.</li>
 <li>Click <strong>Add Stack</strong>.</li>
 <li>Type in the name <strong>sandbox</strong> (<em>lowercase</em>).</li>
 <li>Select <strong>Upload from your Computer</strong>.</li>
-<li>Upload the <strong>docker-compose.yml</strong> file you generated via the setup script.</li>
+<li>Upload the <strong>docker-compose.yml</strong> file you downloaded.</li>
 <li>Click on <strong>Deploy the Stack</strong>. The button will then display <em>Deployment in progress</em>  - do not click away while this message is shown.</li>
 </ol>
 <p>This may take a <strong>very long</strong> time if this is the first time setting up
 the demo, as it must download all the Docker Images from the
 internet. </p>
+<p>Once it is completed, you will see the list of stacks, now listing 'sandbox' among them.</p>
 <h2 id="wait-for-install">Wait for Install<a class="headerlink" href="#wait-for-install" title="Permanent link">&para;</a></h2>
-<p>Demo still needs to install and configure <code>Drupal</code>, which may
+<p>After deploying the stack has completed, the demo still needs to install and configure <code>Drupal</code>, which may
 take upwards of <em>10-15 minutes</em>. You can check on the install process by doing
 the following.</p>
 <ol>
@@ -2416,7 +2416,7 @@ the following.</p>
 <li>Open the sidebar.</li>
 <li>Click on <strong>Stacks</strong>.</li>
 <li>Click on <strong>sandbox</strong>.</li>
-<li>Click on the Logs icon for <strong>Drupal</strong>.</li>
+<li>Click on the Logs button ('page' icon) for the <strong>Drupal</strong> container - the one named something like <code>sandbox-drupal-1</code></li>
 <li>Examine the log output waiting for the message below.</li>
 </ol>
 <p>When completed you should see the following output at the end of the log.</p>
@@ -2516,7 +2516,7 @@ processors=2
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 7, 2023</span>
       
     
   </small>
