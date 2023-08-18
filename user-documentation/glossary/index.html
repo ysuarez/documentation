@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://islandora.github.io/documentation/user-documentation/glossary/">
       
       
-        <link rel="prev" href="../../contributing/committers/">
+        <link rel="prev" href="../../contributing/sandbox/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -536,14 +536,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
-          Docker (ISLE)
+          ISLE-DC
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker (ISLE)
+          ISLE-DC
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -782,6 +782,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../installation/site-template/" class="md-nav__link">
+        ISLE Site Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../installation/playbook/" class="md-nav__link">
         Ansible Playbook
       </a>
@@ -801,17 +815,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
       
       
       
-        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
           Manual Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_5">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
           Manual Installation
         </label>
@@ -1995,14 +2009,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Migration
+          Migration/Batch Loading
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Migration
+          Migration/Batch Loading
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2273,6 +2287,20 @@
     <li class="md-nav__item">
       <a href="../../contributing/committers/" class="md-nav__link">
         Committers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/sandbox/" class="md-nav__link">
+        Maintaining the Sandbox
       </a>
     </li>
   
@@ -2567,6 +2595,13 @@
         <li class="md-nav__item">
   <a href="#glam" class="md-nav__link">
     GLAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greenfield" class="md-nav__link">
+    Greenfield
   </a>
   
 </li>
@@ -3180,6 +3215,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#greenfield" class="md-nav__link">
+    Greenfield
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#imagemagick" class="md-nav__link">
     Imagemagick
   </a>
@@ -3615,6 +3657,8 @@
 <p>Flysystem is a filesystem abstraction library for PHP. Islandora uses Flysystem to swap about different backend filesystem applications. Islandora provides a custom Flysystem adapter for <a href="#fedora-repository-software">Fedora</a>.</p>
 <h2 id="glam">GLAM<a class="headerlink" href="#glam" title="Permanent link">&para;</a></h2>
 <p>Acronym for "galleries, libraries, archives, and museums".</p>
+<h2 id="greenfield">Greenfield<a class="headerlink" href="#greenfield" title="Permanent link">&para;</a></h2>
+<p>An installation without legacy constraints. Usually refers to a brand new system where users load new content, as opposed to migrating content from a previous system.</p>
 <h2 id="imagemagick">Imagemagick<a class="headerlink" href="#imagemagick" title="Permanent link">&para;</a></h2>
 <p><a href="https://imagemagick.org/index.php">Imagemagick</a> is an open-source image processing library. In Islandora, Imagemagick is provided by the <a href="#crayfish">Crayfish</a> <a href="#microservice">Microservice</a>, <a href="#houdini">Houdini</a>.</p>
 <h2 id="hocr">hOCR<a class="headerlink" href="#hocr" title="Permanent link">&para;</a></h2>
@@ -3716,14 +3760,14 @@ See also: <a href="#resource-node">Resource Node</a></p>
 <h2 id="yaml">YAML<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h2>
 <p><a href="https://yaml.org/">YAML</a> is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or transmitted. Software applications like <a href="#drupal">Drupal</a> or <a href="#ansible">Ansible</a> store configuration information in YAML files for easy transportability of a configuration.</p>
 <hr />
-<p>Some definitions adapted from <a href="https://en.wikipedia.org/">Wikipedia</a> and <a href="https://www.[Drupal](#drupal).org/docs/user_guide/en/glossary.html">[Drupal](#drupal).org</a></p>
+<p>Some definitions adapted from <a href="https://en.wikipedia.org/">Wikipedia</a> and <a href="https://www.drupal.org/docs/user_guide/en/glossary.html">Drupal.org</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 11, 2023</span>
       
     
   </small>

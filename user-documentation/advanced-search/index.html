@@ -538,14 +538,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
-          Docker (ISLE)
+          ISLE-DC
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker (ISLE)
+          ISLE-DC
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -784,6 +784,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../installation/site-template/" class="md-nav__link">
+        ISLE Site Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../installation/playbook/" class="md-nav__link">
         Ansible Playbook
       </a>
@@ -803,17 +817,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
       
       
       
-        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
           Manual Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_5">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
           Manual Installation
         </label>
@@ -2151,14 +2165,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Migration
+          Migration/Batch Loading
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Migration
+          Migration/Batch Loading
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2435,6 +2449,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/sandbox/" class="md-nav__link">
+        Maintaining the Sandbox
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2645,10 +2673,10 @@ of Ajax with search blocks, facets, and search results.</p>
 <p><img alt="animated gif demonstrating advanced search in action" src="../../assets/advanced_search_demo.gif" /></p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <p>Use composer to download the required libraries and modules.</p>
-<pre><code class="language-bash">composer require drupal/facets &quot;^1.3&quot;
-composer require drupal/search_api_solr &quot;^4.1&quot;
-composer require drupal/search_api &quot;^1.5&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>composer<span class="w"> </span>require<span class="w"> </span>drupal/facets<span class="w"> </span><span class="s2">&quot;^1.3&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>composer<span class="w"> </span>require<span class="w"> </span>drupal/search_api_solr<span class="w"> </span><span class="s2">&quot;^4.1&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>composer<span class="w"> </span>require<span class="w"> </span>drupal/search_api<span class="w"> </span><span class="s2">&quot;^1.5&quot;</span>
+</span></code></pre></div>
 <p>However, for reference, <code>islandora_advanced_search</code> requires the following
 drupal modules:</p>
 <ul>
@@ -2657,9 +2685,9 @@ drupal modules:</p>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>To download/enable just this module, use the following from the command line:</p>
-<pre><code class="language-bash">composer require islandora/islandora
-drush en islandora_advanced_search
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>composer<span class="w"> </span>require<span class="w"> </span>islandora/islandora
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>drush<span class="w"> </span>en<span class="w"> </span>islandora_advanced_search
+</span></code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>You can set the following configuration at <strong>Administration</strong> &gt;&gt; <strong>Configuration</strong> &gt;&gt; <strong>Advanced Search Settings</strong>
 (admin/config/search/advanced):</p>
@@ -2761,7 +2789,7 @@ checkbox.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 11, 2023</span>
       
     
   </small>

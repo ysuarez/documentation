@@ -542,14 +542,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
-          Docker (ISLE)
+          ISLE-DC
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker (ISLE)
+          ISLE-DC
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -831,6 +831,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../site-template/" class="md-nav__link">
+        ISLE Site Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../playbook/" class="md-nav__link">
         Ansible Playbook
       </a>
@@ -850,17 +864,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
       
       
       
-        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
           Manual Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_5">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
           Manual Installation
         </label>
@@ -2044,14 +2058,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Migration
+          Migration/Batch Loading
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Migration
+          Migration/Batch Loading
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2328,6 +2342,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/sandbox/" class="md-nav__link">
+        Maintaining the Sandbox
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2414,28 +2442,28 @@ changes are automatically reflected on the Drupal container.</p>
 <p>If you don't already have a Drupal site, you'll be given a basic setup using Drupal 9 and the
 <a href="https://github.com/Islandora-Devops/islandora-starter-site">Islandora Starter Site</a>.</p>
 <p>If you do already have a Drupal site, use git to clone it into place as the <code>codebase</code> folder.</p>
-<pre><code>cd /path/to/isle-dc
-git clone https://github.com/your_org/your_repo codebase
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd /path/to/isle-dc
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git clone https://github.com/your_org/your_repo codebase
+</span></code></pre></div>
 <p>Now you'll need to tell <code>isle-dc</code> to look for it by setting the <code>ENVIRONMENT</code> variable in
 your <code>.env</code> file. If you don't have one, copy over <code>sample.env</code> and name it <code>.env</code>. Then
 set</p>
-<pre><code>ENVIRONMENT=starter
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ENVIRONMENT=starter
+</span></code></pre></div>
 <p>You should also change the <code>COMPOSE_PROJECT_NAME</code> variable. This determines the name of the
 Docker containers and volumes that are created when you run <code>make starter</code>. If you leave this as the default
 you will need to be careful not to overwrite the containers with another install of <code>isle-dc</code>
-later.</p>
-<pre><code>COMPOSE_PROJECT_NAME=isle-dc
-</code></pre>
+later.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>COMPOSE_PROJECT_NAME=isle-dc
+</span></code></pre></div></p>
 <p>If your site includes exported configuration from <code>drush config:export</code>, then you'll also
 need to set</p>
-<pre><code>INSTALL_EXISTING_CONFIG=true
-DRUPAL_INSTALL_PROFILE=minimal
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>INSTALL_EXISTING_CONFIG=true
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>DRUPAL_INSTALL_PROFILE=minimal
+</span></code></pre></div>
 <p>Once you are ready, run</p>
-<pre><code class="language-bash">make starter
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>make<span class="w"> </span>starter
+</span></code></pre></div>
 <p>to install the Drupal site in your <code>codebase</code> folder and spin up all the other containers with it.</p>
 <p>Enjoy your Islandora instance!  Check out the <a href="../docker-basic-usage">basic usage documentation</a> to see
 all the endpoints that are available and how to do things like start and stop Islandora. Your passwords,
@@ -2446,7 +2474,7 @@ including the Drupal admin password, can be found in the <code>secrets/live</cod
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 11, 2023</span>
       
     
   </small>

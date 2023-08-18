@@ -16,7 +16,7 @@
         <link rel="prev" href="../docker-available-configuration/">
       
       
-        <link rel="next" href="../playbook/">
+        <link rel="next" href="../site-template/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
@@ -542,14 +542,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
-          Docker (ISLE)
+          ISLE-DC
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker (ISLE)
+          ISLE-DC
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -864,6 +864,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../site-template/" class="md-nav__link">
+        ISLE Site Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../playbook/" class="md-nav__link">
         Ansible Playbook
       </a>
@@ -883,17 +897,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
       
       
       
-        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
           Manual Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_5">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
           Manual Installation
         </label>
@@ -2077,14 +2091,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Migration
+          Migration/Batch Loading
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Migration
+          Migration/Batch Loading
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2361,6 +2375,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/sandbox/" class="md-nav__link">
+        Maintaining the Sandbox
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2485,8 +2513,8 @@
 <p>If you notice some Docker containers drop (exited(0)), and (in Docker Desktop) the isle-dc app icon is yellow instead of green, try increasing the resources allocated to Docker (see note above).</p>
 <h3 id="connection-timed-out-mac">Connection timed out (Mac).<a class="headerlink" href="#connection-timed-out-mac" title="Permanent link">&para;</a></h3>
 <p>If you are using Docker Desktop for Mac, and get timeout errors when spinning up the containers (during <code>docker-compose up -d</code> or during <code>make local</code>) such as this:</p>
-<pre><code>ERROR: for isle-dc_mariadb_1  UnixHTTPConnectionPool(host='localhost', port=None): Read timed out. (read timeout=480)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ERROR: for isle-dc_mariadb_1  UnixHTTPConnectionPool(host=&#39;localhost&#39;, port=None): Read timed out. (read timeout=480)
+</span></code></pre></div>
 <p>you can try quitting Docker completely (make sure there is no whale icon in your top toolbar - may need to select "Quit" from the whale icon itself) and then restart Docker.</p>
 <h3 id="504-bad-gateway">504 Bad Gateway<a class="headerlink" href="#504-bad-gateway" title="Permanent link">&para;</a></h3>
 <p>If you get a white screen with a 504 Bad Gateway error, this means your containers haven't finished initializing themselves yet.  If you've waiting an appropriate amount of time (2-5 minutes), then there is most likely an error in a container's startup script.  Use <code>docker ps -a</code> to see which services have <code>Exited</code> status, and then tail their logs with <code>docker-compose logs service_name</code>.</p>
@@ -2496,7 +2524,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 11, 2023</span>
       
     
   </small>
