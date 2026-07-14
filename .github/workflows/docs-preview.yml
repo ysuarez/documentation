@@ -18,9 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Build docs
         uses: ./.github/actions/build
+        with:
+          site_url: https://islandora.github.io/documentation/pr-preview/pr-${{ github.event.number }}/
       - name: Deploy docs preview
         # XXX: Avoid attempting to do preview things across fork boundaries, as it doesn't work.
         # See: https://github.com/rossjrw/pr-preview-action/pull/6
